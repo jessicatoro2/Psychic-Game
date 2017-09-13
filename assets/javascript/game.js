@@ -12,7 +12,7 @@
 
 
 
-	// To start game press space bar 
+	// To start game press space bar (not needed I just wanted an alert ) 
 	document.onkeyup = function(event) {
 		if(event.keyCode === 32) {
 		// Computer chooses a letter randomly
@@ -44,10 +44,9 @@
 			if (userGuess == computerGuess) {
 				wins++;
 				guessesLeft = 10;
-				guessesSoFar = [];
+				guessesSoFar = [];	
 				alert("Yes! My letter was \"" + computerGuess.toUpperCase() + "\" you guessed correctly!");
 					console.log("letters match user wins" + wins)
-
 				computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)]
 			}
 			// else if user letter does not match  guess left goes down by 1 
@@ -60,34 +59,22 @@
 				computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)]
 			}
 		}	
-		
+		// This is my html code inside that interacts with the count of my game
+	var html = 
+	"<div id='game'> <div class='jumbotron text-center'> <h1>Are you Psychic?</h1> <p>press spacebar to start</p> </div> <div class='container'> <div class='row'> <div class='col-sm-12'> <img id='imageback' src='assets/images/psychic-image-01-01.png' alt='cartoon-image'> </div> </div> </div> <div class='container'> <div class='row'> <div class='col-sm-3'> <h4 class='list'>Your Wins: " + wins + "</h4> </div> <div class='col-sm-3'> <h4 class='list'>Your Losses: " + losses + "</h4> </div> <div class='col-sm-3'> <h4 class='list'>Your Guesses Left: " + guessesLeft + " </h4> </div> <div class='col-sm-3'> <h4 class='list'>You Guessed: " + guessesSoFar + "</h4> </div> </div> </div> </div>"
+	document.querySelector("#game").innerHTML = html;
 
-		// This is all my HTML that gets updated once a key is pressed 
-			var html = "<h1 div class='container'>The Psychic Game</h1>" + 
-		"<p>Guess what letter I\'m thinking of!!!</p>" + 
-		"<h1>Press Spacebar to start</h1>" +
-		"<p class='blue'>Your Wins: " + wins + "</p>" + 
-		"<p>Your Losses: " + losses + "</p>" + 
-		"<p>Your Guesses Left: " + guessesLeft + "</p>" + 
-		"<p>Your guesses so far: " +  guessesSoFar  + "</p>";
-		// place html into the game ID
-		document.querySelector("#game").innerHTML = html;
 
 	}
-	
-// This is all my HTML when the page loads. 
-// I know it isn't best practice to have code in twice but it wouldn't work if it wasn't in both location, inside and outside the function. 
-
-	var html = "<h1 div class='container'>The Psychic Game</h1>" + 
-	"<p>Guess what letter I\'m thinking of!!!</p>" + 
-	"<h1>Press Spacebar to start</h1>" +
-	"<p class='blue'>Your Wins: " + wins + "</p>" + 
-	"<p>Your Losses: " + losses + "</p>" + 
-	"<p>Your Guesses Left: " + guessesLeft + "</p>" + 
-	"<p>Your guesses so far: " +  guessesSoFar  + "</p>";
-	// place html into the game ID
-	document.querySelector("#game").innerHTML = html;
-//}
-
-
-//  	
+// testing changing picture
+		// function change(){
+		// 		var image = document.getElementById('imageback');
+		// 		if(image_tracker=='p') {
+		// 			image.src = 'winafter-win.png';
+		// 			image_tracker = 'w';
+		// 		} else{
+		// 			image.src = 'psychic-image-01-01.png';
+		// 			image_tracker = 'p';
+		// 		}
+		// 	}
+		
