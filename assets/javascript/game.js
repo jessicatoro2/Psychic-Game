@@ -8,8 +8,6 @@
 	var guessesSoFar = [];
 	var userGuess = "";
 	var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)]
-			
-
 
 
 	// To start game press space bar (not needed I just wanted an alert ) 
@@ -32,9 +30,13 @@
 
 			// make an array of the user guesses
 				guessesSoFar[guessesSoFar.length] = userGuess;
+				document.getElementById("totalGuess").innerHTML = guessesSoFar;
+
 
 			// decrease the "guess left" by 1 ifs the user guess doesn't match the computer guess
 				guessesLeft--;
+				document.getElementById("totalLeft").innerHTML = guessesLeft;
+
 
 				if (guessesLeft === 0){
 					alert("Game Over, sorry you have no more guesses left. My letter was \"" + computerGuess.toUpperCase() + "\"");
@@ -44,37 +46,38 @@
 			if (userGuess == computerGuess) {
 				wins++;
 				guessesLeft = 10;
-				guessesSoFar = [];	
+				guessesSoFar = [];
+				
+				document.getElementById('imageback').src = 'assets/images/winafter-win.png';
+				document.getElementById("totalWin").innerHTML = wins;
 				alert("Yes! My letter was \"" + computerGuess.toUpperCase() + "\" you guessed correctly!");
-					console.log("letters match user wins" + wins)
+				console.log("letters match user wins" + wins)
 				computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)]
+				setTimeout(function(){ document.getElementById('imageback').src = 'assets/images/psychic-image-01-01.png';}, 2000);
+
+
+
 			}
 			// else if user letter does not match  guess left goes down by 1 
 			if (guessesLeft==0) {
 				losses++;
 				guessesLeft = 10;
 				guessesSoFar = [];
-				alert("You lost!");
+				document.getElementById("totalLoss").innerHTML = losses;
 
+				alert("You lost!");
 				computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)]
+
+
 			}
 		}	
 		// This is my html code inside that interacts with the count of my game
-	var html = 
-	"<div id='game'> <div class='jumbotron text-center'> <h1>Are you Psychic?</h1> <p>press spacebar to start</p> </div> <div class='container'> <div class='row'> <div class='col-sm-12'> <img id='imageback' src='assets/images/psychic-image-01-01.png' alt='cartoon-image'> </div> </div> </div> <div class='container'> <div class='row'> <div class='col-sm-3'> <h4 class='list'>Your Wins: " + wins + "</h4> </div> <div class='col-sm-3'> <h4 class='list'>Your Losses: " + losses + "</h4> </div> <div class='col-sm-3'> <h4 class='list'>Your Guesses Left: " + guessesLeft + " </h4> </div> <div class='col-sm-3'> <h4 class='list'>You Guessed: " + guessesSoFar + "</h4> </div> </div> </div> </div>"
-	document.querySelector("#game").innerHTML = html;
+	// var html = 
+	// "<div id='game'> <div class='jumbotron text-center'> <h1>Are you Psychic?</h1> <p>press spacebar to start</p> </div> <div class='container'> <div class='row'> <div class='col-sm-12'></div> </div> </div> <div class='container'> <div class='row'> <div class='col-sm-3'> <h4 class='list'>Your Wins: " + wins + "</h4> </div> <div class='col-sm-3'> <h4 class='list'>Your Losses: " + losses + "</h4> </div> <div class='col-sm-3'> <h4 class='list'>Your Guesses Left: " + guessesLeft + " </h4> </div> <div class='col-sm-3'> <h4 class='list'>You Guessed: " + guessesSoFar + "</h4> </div> </div> </div> </div>"
+	// document.querySelector("#game").innerHTML = html;
 
 
 	}
-// testing changing picture
-		// function change(){
-		// 		var image = document.getElementById('imageback');
-		// 		if(image_tracker=='p') {
-		// 			image.src = 'winafter-win.png';
-		// 			image_tracker = 'w';
-		// 		} else{
-		// 			image.src = 'psychic-image-01-01.png';
-		// 			image_tracker = 'p';
-		// 		}
-		// 	}
+
+
 		
