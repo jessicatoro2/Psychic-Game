@@ -1,7 +1,7 @@
 # Psychic-Game
 
 <div align="center">
-	<img src="public/images/8hrs-logo.png"><br>
+	<img src="assets/images/Screen Shot 2017-12-15 at 12.31.25 PM.png"><br>
 </div>
 
 ## Summary
